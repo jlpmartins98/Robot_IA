@@ -41,3 +41,4 @@ while True:
     robot.straight(-200)
     #vira 90 graus para verificar a sua direita
     robot.turn(90)
+     #blabla
