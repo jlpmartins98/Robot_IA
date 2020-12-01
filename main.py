@@ -33,7 +33,7 @@ color_sensor = ColorSensor(Port.D)
 x = 0
 y = 0
 posicao_robo = [x,y] #falta denotar os limites do tabuleiro ou seja o X onde sai e o Y onde sai e tals
-coordenadas_paredes = []
+coordenadas_paredes = [] #vai conter arrays com 2 inteiros cada, representando o X e Y das paredes
 while True:
     int ovelhas 
     #anda a 200milimetros por segundo
