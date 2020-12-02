@@ -1,7 +1,6 @@
 #!/usr/bin/env python3
 from pybricks.hubs import EV3Brick
-from pybricks.ev3devices import (Motor, TouchSensor, ColorSensor,
-                                 InfraredSensor, UltrasonicSensor, GyroSensor)
+from pybricks.ev3devices import (Motor, TouchSensor, ColorSensor,InfraredSensor, UltrasonicSensor, GyroSensor)
 from pybricks.parameters import Port, Stop, Direction, Button, Color
 from pybricks.tools import wait, StopWatch, DataLog
 from pybricks.robotics import DriveBase
@@ -30,8 +29,7 @@ color_sensor = ColorSensor(Port.S2)
 roboot = DriveBase(left_motor, right_motor, wheel_diameter=55.5, axle_track=104)
 #verificar as medidas das rodas 
 
-#inicializa o sensor de cores (verificar o port no robo)
-color_sensor = ColorSensor(Port.D)
+
 
 #posiçao inicial do robo
 int x = 0
