@@ -12,14 +12,15 @@ class Pastor:
         self.direcao = direcao
 
 paredes = [] #array com as paredes 
-
+ovelhas=0
 ev3=EV3Brick()
 encontrou_parede = 0
 motor_esquerdo = Motor(Port.B)
 motor_direito = Motor(Port.C)
 
+obstacle_sensor = UltrasonicSensor(Port.S2)
 sensor_toque = TouchSensor(Port.S1)
-sensor_cor = ColorSensor(Port.S2)
+sensor_cor = ColorSensor(Port.S4)
 
 robot = DriveBase(motor_esquerdo, motor_direito, wheel_diameter = 55.5, axle_tracker = 104)
 
@@ -39,11 +40,18 @@ def adiciona_parede():
     if(len(paredes)<6):
         paredes.append([x_parede,y_parede])
 
+def ovelhas():    
+    while obstacle_sensor.distance() < 300:
+        ev3.speaker.beep()
+        ovelhas += 1
+
+
 
 def andar():
     while(sensor_cor.color()== Color.WHITE):
         robot.drive(10,0)
     robot.stop()
+    ovelhas()
     if(sensor_cor.color()==Color.BLACK): #Encontra limite do cacifo
         robot.straigh(20) #Anda até o centro do cacifo adjacente  $$$$$$$$$$$$$$$$$$$$ Verificar valor
         if(informacao.direcao==0):                          #Virado para cima
@@ -55,12 +63,13 @@ def andar():
         elif(informacao.direcao==270):                      #Virado para a esquerda
             informacao.posicao = informacao.posicao - 1
     elif(sensor_cor.color()==Color.RED): #Encontra parede $$$$$$$$$$$$$$$$$$ Verificar cor
-        encontrou_parede = 1;
+        encontrou_parede = 1
         robot.straigh(-20) # Retorna ao centro do cacifo de onde saiu
        
 
 
 def main():
+    
     andar()
     if(encontrou_parede):
         adiciona_parede()
