@@ -64,6 +64,7 @@ def run():
         posicao_robo[0] = posicao_robo[0] - 200
         #repete o acima no sentido negativo de X e Y (ou seja vira mais 90 graus anda 200 e a posicao no eixo do Y passa a ser o q era -200 blah blah)
         #como registar as paredes para o robo se lembrar? podemos guardar a posiçao X e Y da parede mas vamos guardar essas posiçoes onde?
+        #ou adicionarmos um contador para x e y 
         #podemos ter um array de arrays que guarda as paredes maybe
         #integrar a verificaçao das cores, o python tem mains? dava jeito ser outra funçao separada
 
